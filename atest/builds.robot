@@ -31,7 +31,7 @@ Get Next Build Number
     [Tags]    job    build
     [Setup]    Create Jenkins Job    ${test_job_name}
     [Teardown]    Delete Jenkins Job    ${test_job_name}
-    ${random_int} =    Evaluate    random.randint(2, 10)    modules=random
+    ${random_int} =    Get Random Integer    2    10
     :FOR    ${run}    IN RANGE    ${random_int}
     \    ${next_build_before} =    Get Next Build Number    ${test_job_name}
     \    Should Be Equal As Integers    ${run + 1}    ${next_build_before}

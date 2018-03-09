@@ -58,3 +58,6 @@ class JenkinsLibrary(object):
 
     def get_next_build_number(self, name):
         return self.jenkins.get_next_build_number(name)
+
+    def get_jenkins_queue(self):
+        return self.jenkins.get_queue()

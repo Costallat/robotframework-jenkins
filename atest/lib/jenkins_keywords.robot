@@ -36,3 +36,10 @@ Create Job And Run Multiple Builds
     Create Jenkins Job    ${job_name}
     :FOR    ${run}    IN RANGE    ${count}
     \    Start Jenkins Job    ${job_name}
+
+Get Random Integer
+    [Arguments]    ${from}    ${to}
+    [Return]    ${random_int}
+    ${random_int} =    Evaluate    random.randint(${from}, ${to})    modules=random
+
+

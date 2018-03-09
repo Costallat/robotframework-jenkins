@@ -1,5 +1,5 @@
 import jenkins
-
+from robot.api import logger
 
 def is_server_initialized(func):
     def _decorator(self, *args, **kwargs):
@@ -79,14 +79,14 @@ class Server(object):
         if job_params:
             if not params:
                 raise RuntimeError('This is parameterized job, you have to '
-                                   'specify params dicitionary')
-                self.server.build_job(name, params)
+                                   'specify params dictionary')
+            self.server.build_job(name, params)
         else:
             if not params:
                 self.server.build_job(name, params)
             else:
                 raise RuntimeError('This is not parameterized job, you don\'t '
-                                   'have to no specify params dicitionary')
+                                   'have to no specify params dictionary')
         return build_number
 
     @is_server_initialized
@@ -124,3 +124,7 @@ class Server(object):
                     'value': param['defaultParameterValue']['value']
                 })
         return params
+
+    @is_server_initialized
+    def get_queue(self):
+        return self.server.get_queue_info()
