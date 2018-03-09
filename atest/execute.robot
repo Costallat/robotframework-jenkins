@@ -27,7 +27,7 @@ Run Existent Unparameterized Job With Params
     [Tags]    execute
     [Setup]    Create Jenkins Job    ${test_job_name}
     [Teardown]    Delete Jenkins Job    ${test_job_name}
-    Run Keyword And Expect Error    This is not parameterized job, you don't have to no specify params dicitionary\
+    Run Keyword And Expect Error    This is not parameterized job, you don't have to no specify params dictionary\
     ...    Start Jenkins Job    ${test_job_name}    ${job_parameterized_scratch_parameters}
 
 Run Existent Parameterized Job With Params
@@ -40,7 +40,7 @@ Run Existent Parameterized Job Without Params
     [Tags]    execute
     [Setup]    Create Job From Template    ${test_job_name}    ${job_parameterized_scratch}
     [Teardown]    Delete Jenkins Job    ${test_job_name}
-    Run Keyword And Expect Error    This is parameterized job, you have to specify params dicitionary\
+    Run Keyword And Expect Error    This is parameterized job, you have to specify params dictionary\
     ...    Start Jenkins Job    ${test_job_name}
 
 Compare Nuild Number
